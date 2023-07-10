@@ -1,0 +1,97 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id "kotlinx-serialization"
+    id 'kotlin-kapt'
+}
+
+android {
+    namespace 'cardosofgui.android.pokedexcleanarchmvvm'
+    compileSdk AndroidSDK.compileSDK
+
+    defaultConfig {
+        applicationId "cardosofgui.android.pokedexcleanarchmvvm"
+        minSdk AndroidSDK.minSDK
+        targetSdk AndroidSDK.targetSDK
+        versionCode AppSettings.versionCode
+        versionName AppSettings.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            applicationIdSuffix ".release"
+            debuggable AppSettings.debuggable
+        }
+        debug {
+            applicationIdSuffix ".debug"
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion PresentationVersions.composeCompiler
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+
+    // Presentation Libs
+    implementation platform(PresentationLibs.composeBom)
+    implementation(PresentationLibs.composeActivity)
+    implementation(PresentationLibs.composeUi)
+    implementation(PresentationLibs.composeGraphics)
+    implementation(PresentationLibs.composeMaterial3)
+    implementation(PresentationLibs.composeMaterial)
+    implementation(PresentationLibs.composeCoil)
+    implementation(PresentationLibs.lottie)
+    implementation(PresentationLibs.lottieCompose)
+
+    // Data Libs
+    implementation(DataLibs.ktorOkhttp)
+    implementation(DataLibs.ktorLogging)
+    implementation(DataLibs.ktorContentNegotiation)
+    implementation(DataLibs.ktorKotlinxSerialization)
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
+    implementation 'androidx.activity:activity-compose:1.5.1'
+    implementation platform('androidx.compose:compose-bom:2022.10.00')
+    implementation 'androidx.compose.ui:ui'
+    implementation 'androidx.compose.ui:ui-graphics'
+    implementation 'androidx.compose.ui:ui-tooling-preview'
+    implementation 'androidx.compose.material3:material3'
+    androidTestImplementation platform('androidx.compose:compose-bom:2022.10.00')
+    androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
+    debugImplementation 'androidx.compose.ui:ui-tooling'
+    debugImplementation 'androidx.compose.ui:ui-test-manifest'
+    kapt(DataLibs.roomRuntime)
+    kapt(DataLibs.roomCompiler)
+    implementation(DataLibs.roomKtx)
+
+    // Core Libs
+    implementation(CoreLibs.startup)
+    implementation(CoreLibs.koinCompose)
+    implementation(CoreLibs.lifecycleRuntime)
+    implementation(CoreLibs.lifecycleRuntimeCompose)
+    implementation(CoreLibs.androidXCoreKtx)
+    implementation(CoreLibs.logcat)
+    implementation(CoreLibs.coroutines)
+}
