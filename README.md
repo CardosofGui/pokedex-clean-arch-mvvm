@@ -1,6 +1,6 @@
 # Pokedex - Exemplo de Projeto com Clean Architecture e MVVM
 
-Bem-vindo ao repositório da Pokedex, um projeto de exemplo que demonstra a aplicação do Clean Architecture em conjunto com o padrão de arquitetura MVVM (Model-View-ViewModel) em um aplicativo Android. Este repositório foi criado como parte de um [artigo]() sobre Desenvolvimento com Clean Architecture e MVVM, com o objetivo de fornecer um exemplo prático e claro de como essas abordagens podem ser implementadas em um projeto Android.
+Bem-vindo ao repositório da Pokedex, um projeto de exemplo que demonstra a aplicação do Clean Architecture em conjunto com o padrão de arquitetura MVVM (Model-View-ViewModel) em um aplicativo Android. Este repositório foi criado como parte de um [artigo](https://medium.com/@cardosof.gui/clean-architecture-e-mvvm-no-desenvolvimento-android-6f542d0f2e99) sobre Desenvolvimento com Clean Architecture e MVVM, com o objetivo de fornecer um exemplo prático e claro de como essas abordagens podem ser implementadas em um projeto Android.
 
 ## Visão Geral
 
